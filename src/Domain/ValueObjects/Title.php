@@ -9,6 +9,7 @@ class Title
     public function __construct(private readonly ?string $title = null)
     {
         if ($title === null) {
+            //TODO mejorar el control de las validaciones del VO
             throw new InvalidArgumentException();
         }
     }
