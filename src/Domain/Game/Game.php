@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Domain\Game;
 
-class Game
+use AllowDynamicProperties;
+
+#[AllowDynamicProperties] class Game
 {
 
     public function __construct(private string $name, private string $company, private string $platform)

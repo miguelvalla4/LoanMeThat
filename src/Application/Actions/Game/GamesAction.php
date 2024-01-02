@@ -20,9 +20,10 @@ class GamesAction extends Action
     {
         $response = $this->useCase->execute();
 
-        return $this->respondWithData([
-            'games' => $response,
-            'file' => __FILE__
-        ]);
+        return $this->respondWithData(
+            [
+                "games" => $response
+            ]
+        );
     }
 }
