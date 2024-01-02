@@ -49,3 +49,5 @@ help:
 # Build and start the Docker containers
 up:
 	$(DOCKER_COMPOSE) up -d
+down:
+	$(DOCKER_COMPOSE) down
