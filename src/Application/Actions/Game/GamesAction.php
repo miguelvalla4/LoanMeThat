@@ -18,6 +18,10 @@ class GamesAction extends Action
 
     protected function action(): ResponseInterface
     {
-        return $this->respondWithData(['content' => $this->gamesUseCase->execute()]);
+        $response = $this->useCase->execute();
+        return $this->respondWithData([
+            'message' => $response,
+            'file' => __FILE__
+        ]);
     }
 }
