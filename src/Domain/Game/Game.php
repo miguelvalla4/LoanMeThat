@@ -5,17 +5,18 @@ declare(strict_types=1);
 namespace App\Domain\Game;
 
 use AllowDynamicProperties;
+use App\Domain\ValueObjects\Title;
 
 #[AllowDynamicProperties] class Game
 {
 
-    public function __construct(private string $name, private string $company, private string $platform)
+    public function __construct(private Title $title, private string $company, private string $platform)
     {
     }
 
-    private function name(): string
+    private function title(): Title
     {
-        return $this->name;
+        return $this->title;
     }
 
     private function company(): string
@@ -31,7 +32,7 @@ use AllowDynamicProperties;
     public function toArray(): array
     {
         return [
-            'name' => $this->name(),
+            'title' => $this->title()->value(),
             'company' => $this->company(),
             'platform' => $this->platform()
         ];

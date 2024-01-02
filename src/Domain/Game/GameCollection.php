@@ -2,14 +2,16 @@
 
 namespace App\Domain\Game;
 
+use App\Domain\ValueObjects\Title;
+
 class GameCollection
 {
-    public static function createFromRawData(...$gamesRaw): array
+    public static function buildFromRaw(array $gamesRaw): array
     {
         $gameCollection = [];
 
         foreach ($gamesRaw as $gameRaw) {
-            $game = new Game($gameRaw['name'], $gameRaw['company'], $gameRaw['platform']);
+            $game = new Game(new Title($gameRaw['title']), $gameRaw['company'], $gameRaw['platform']);
 
             $gameCollection[] = $game->toArray();
         }
