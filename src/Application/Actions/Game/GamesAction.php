@@ -11,7 +11,7 @@ use Psr\Log\LoggerInterface;
 
 class GamesAction extends Action
 {
-    public function __construct(private readonly GetAllGamesUseCase $gamesUseCase, LoggerInterface $logger)
+    public function __construct(private readonly GetAllGamesUseCase $useCase, LoggerInterface $logger)
     {
         parent::__construct($logger);
     }
@@ -19,6 +19,7 @@ class GamesAction extends Action
     protected function action(): ResponseInterface
     {
         $response = $this->useCase->execute();
+
         return $this->respondWithData([
             'message' => $response,
             'file' => __FILE__

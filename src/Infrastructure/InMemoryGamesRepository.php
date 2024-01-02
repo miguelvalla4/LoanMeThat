@@ -11,8 +11,9 @@ class InMemoryGamesRepository implements GetGamesRepositoryInterface
 {
     public function getAllGames(): array
     {
-        return [
-           new Game('Hogwarts Legacy', 'Avalanche Software', 'PS5')
-        ];
+        //todo jugar con GamesCollection
+        $game = new Game('Hogwarts Legacy', 'Avalanche Software', 'PS5');
+
+        return $game->toArray();
     }
 }

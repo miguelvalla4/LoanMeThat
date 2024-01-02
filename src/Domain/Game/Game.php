@@ -25,4 +25,13 @@ class Game
     {
         return $this->platform;
     }
+
+    public function toArray(): array
+    {
+        return [
+            'name' => $this->name(),
+            'company' => $this->company(),
+            'platform' => $this->platform()
+        ];
+    }
 }
