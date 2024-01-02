@@ -13,7 +13,11 @@ class InMemoryGamesRepository implements GetGamesRepositoryInterface
     {
         //todo jugar con GamesCollection
         $game = new Game('Hogwarts Legacy', 'Avalanche Software', 'PS5');
+        $game2 = new Game('God of War 2018', 'Santa Monica Studios', 'PS%');
 
-        return $game->toArray();
+        return [
+            1 => $game->toArray(),
+            2 => $game2->toArray()
+        ];
     }
 }
