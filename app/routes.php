@@ -19,7 +19,21 @@ return function (App $app) {
         return $response;
     });
 
-    $app->group('/games', function (Group $group) {
+    $app->group('/api/games', function (Group $group) {
         $group->get('', GamesAction::class);
+    });
+
+    $app->get('/games', function (\Slim\Psr7\Request $request, \Slim\Psr7\Response $response) {
+        $filePath = __DIR__ . '/../public/index.html';
+
+        if (file_exists($filePath)) {
+            $htmlContent = file_get_contents($filePath);
+
+            $response->getBody()->write($htmlContent);
+            return $response->withHeader('Content-Type', 'text/html');
+        } else {
+            $response->getBody()->write('Archivo HTML no encontrado');
+            return $response->withStatus(404);
+        }
     });
 };

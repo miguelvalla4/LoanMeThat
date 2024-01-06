@@ -18,7 +18,10 @@ class GamesAction extends Action
 
     protected function action(): ResponseInterface
     {
-        $response = $this->useCase->execute((int)$_GET['page']);
+        $queryParams = $this->request->getQueryParams();
+        $page = isset($queryParams['page']) ? (int)$queryParams['page'] : 1;
+
+        $response = $this->useCase->execute($page);
 
         return $this->respondWithData(
             [
