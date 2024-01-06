@@ -12,8 +12,8 @@ readonly class GetAllGamesUseCase
     {
     }
 
-    public function execute(): array
+    public function execute(?int $page = 1): array
     {
-        return $this->gamesRepository->getAllGames();
+        return $this->gamesRepository->getAllGames($page);
     }
 }

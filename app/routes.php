@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Application\Actions\Game\GamesAction;
+use App\Infrastructure\Actions\Game\GamesAction;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;

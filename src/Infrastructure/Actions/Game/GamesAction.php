@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Application\Actions\Game;
+namespace App\Infrastructure\Actions\Game;
 
-use App\Application\Actions\Action;
 use App\Application\UseCase\Games\GetAllGamesUseCase;
+use App\Infrastructure\Actions\Action;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
@@ -18,7 +18,7 @@ class GamesAction extends Action
 
     protected function action(): ResponseInterface
     {
-        $response = $this->useCase->execute();
+        $response = $this->useCase->execute((int)$_GET['page']);
 
         return $this->respondWithData(
             [

@@ -6,5 +6,5 @@ namespace App\Domain\Game;
 
 interface GetGamesRepositoryInterface
 {
-    public function getAllGames(): array;
+    public function getAllGames(?int $page = 1): array;
 }
