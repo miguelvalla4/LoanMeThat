@@ -15,7 +15,9 @@ return function (App $app) {
     });
 
     $app->get('/', function (Request $request, Response $response) {
-        $response->getBody()->write('Hello world!');
+        $response->getBody()->write('Hello world!' . PHP_EOL);
+        $response->getBody()->write('This is a simple API for games.' . PHP_EOL);
+        $response->getBody()->write('You can find info on /games with pagination using "page" query param.' . PHP_EOL);
         return $response;
     });
 
