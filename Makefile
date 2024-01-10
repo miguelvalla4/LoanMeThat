@@ -48,6 +48,6 @@ help:
 	@echo ""
 # Build and start the Docker containers
 up:
-	$(DOCKER_COMPOSE) up -d
+	$(DOCKER_COMPOSE) up -d --build
 down:
 	$(DOCKER_COMPOSE) down

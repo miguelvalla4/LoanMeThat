@@ -16,3 +16,10 @@ services:
         volumes:
             - .:/var/www
             - logs:/var/www/logs
+
+    node:
+        build: ./front
+        ports:
+            - "8087:8087"
+        volumes:
+            - ./front/:/www
